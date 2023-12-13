@@ -85,7 +85,7 @@
             <OSImage>
                <InstallFrom>
                   <MetaData wcm:action="add">
-                     <Key>/IMAGE/NAME</Key>
+                     <Key>/IMAGE/INDEX</Key>
                      <Value>${vm_inst_os_image}</Value>
                   </MetaData>
                </InstallFrom>
@@ -99,10 +99,7 @@
             <AcceptEula>true</AcceptEula>
             <FullName>${build_username}</FullName>
             <Organization>${build_username}</Organization>
-            <ProductKey>
-               <Key>${vm_inst_os_kms_key}</Key>
-               <WillShowUI>OnError</WillShowUI>
-            </ProductKey>
+            <ProductKey/>
          </UserData>
          <EnableFirewall>false</EnableFirewall>
       </component>

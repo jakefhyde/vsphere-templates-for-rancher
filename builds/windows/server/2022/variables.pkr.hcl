@@ -77,8 +77,18 @@ variable "vm_inst_os_image_standard_core" {
   description = "The installation operating system image input for Microsoft Windwows Standard Core."
 }
 
+variable "vm_inst_os_image_standard_core_index" {
+  type        = number
+  description = "The installation operating system image input for Microsoft Windwows Standard Core."
+}
+
 variable "vm_inst_os_image_standard_desktop" {
   type        = string
+  description = "The installation operating system image input for Microsoft Windwows Standard."
+}
+
+variable "vm_inst_os_image_standard_desktop_index" {
+  type        = number
   description = "The installation operating system image input for Microsoft Windwows Standard."
 }
 
@@ -92,8 +102,18 @@ variable "vm_inst_os_image_datacenter_core" {
   description = "The installation operating system image input for Microsoft Windwows Datacenter Core."
 }
 
+variable "vm_inst_os_image_datacenter_core_index" {
+  type        = number
+  description = "The installation operating system image input for Microsoft Windwows Datacenter Core."
+}
+
 variable "vm_inst_os_image_datacenter_desktop" {
   type        = string
+  description = "The installation operating system image input for Microsoft Windwows Datacenter."
+}
+
+variable "vm_inst_os_image_datacenter_desktop_index" {
+  type        = number
   description = "The installation operating system image input for Microsoft Windwows Datacenter."
 }
 
@@ -401,11 +421,18 @@ variable "communicator_timeout" {
 
 // Provisioner Settings
 
-variable "scripts" {
+variable "preparationScripts" {
   type        = list(string)
   description = "A list of scripts and their relative paths to transfer and run."
   default     = []
 }
+
+variable "finishScripts" {
+  type        = list(string)
+  description = "A list of finishing scripts to run."
+  default     = []
+}
+
 
 variable "inline" {
   type        = list(string)

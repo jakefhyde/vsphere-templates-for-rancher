@@ -87,7 +87,7 @@ source "vsphere-iso" "windows-server-standard-core" {
       build_password       = var.build_password
       vm_inst_os_language  = var.vm_inst_os_language
       vm_inst_os_keyboard  = var.vm_inst_os_keyboard
-      vm_inst_os_image     = var.vm_inst_os_image_standard_core
+      vm_inst_os_image     = var.vm_inst_os_image_standard_core_index
       vm_inst_os_kms_key   = var.vm_inst_os_kms_key_standard
       vm_guest_os_language = var.vm_guest_os_language
       vm_guest_os_keyboard = var.vm_guest_os_keyboard
@@ -178,7 +178,7 @@ source "vsphere-iso" "windows-server-standard-dexp" {
       build_password       = var.build_password
       vm_inst_os_language  = var.vm_inst_os_language
       vm_inst_os_keyboard  = var.vm_inst_os_keyboard
-      vm_inst_os_image     = var.vm_inst_os_image_standard_desktop
+      vm_inst_os_image     = var.vm_inst_os_image_standard_desktop_index
       vm_inst_os_kms_key   = var.vm_inst_os_kms_key_standard
       vm_guest_os_language = var.vm_guest_os_language
       vm_guest_os_keyboard = var.vm_guest_os_keyboard
@@ -271,7 +271,7 @@ source "vsphere-iso" "windows-server-datacenter-core" {
       vm_inst_os_keyboard  = var.vm_inst_os_keyboard
       vm_inst_os_language  = var.vm_inst_os_language
       vm_inst_os_keyboard  = var.vm_inst_os_keyboard
-      vm_inst_os_image     = var.vm_inst_os_image_datacenter_core
+      vm_inst_os_image     = var.vm_inst_os_image_datacenter_core_index
       vm_inst_os_kms_key   = var.vm_inst_os_kms_key_datacenter
       vm_guest_os_language = var.vm_guest_os_language
       vm_guest_os_keyboard = var.vm_guest_os_keyboard
@@ -361,7 +361,7 @@ source "vsphere-iso" "windows-server-datacenter-dexp" {
       build_password       = var.build_password
       vm_inst_os_language  = var.vm_inst_os_language
       vm_inst_os_keyboard  = var.vm_inst_os_keyboard
-      vm_inst_os_image     = var.vm_inst_os_image_datacenter_desktop
+      vm_inst_os_image     = var.vm_inst_os_image_datacenter_desktop_index
       vm_inst_os_kms_key   = var.vm_inst_os_kms_key_datacenter
       vm_guest_os_language = var.vm_guest_os_language
       vm_guest_os_keyboard = var.vm_guest_os_keyboard

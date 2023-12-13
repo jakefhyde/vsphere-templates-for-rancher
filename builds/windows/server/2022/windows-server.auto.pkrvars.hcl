@@ -13,6 +13,17 @@ vm_inst_os_image_datacenter_core    = "Windows Server 2022 SERVERDATACENTERCORE"
 vm_inst_os_image_datacenter_desktop = "Windows Server 2022 SERVERDATACENTER"
 vm_inst_os_kms_key_datacenter       = "WX4NM-KYWYW-QJJR4-XV3QB-6VM33"
 
+/*
+  Selecting OS versions via an index is more reliable than using
+   the string value of the OS version. For both Windows 2019 and 2022
+   ISO's, the order will be the same as below.
+*/
+vm_inst_os_image_standard_core_index = 1
+vm_inst_os_image_standard_desktop_index = 2
+vm_inst_os_image_datacenter_core_index = 3
+vm_inst_os_image_datacenter_desktop_index = 4
+
+
 // Guest Operating System Metadata
 vm_guest_os_language           = "en-US"
 vm_guest_os_keyboard           = "en-US"
@@ -31,19 +42,27 @@ vm_guest_os_type = "windows2019srv_64Guest"
 // Virtual Machine Hardware Settings
 vm_firmware              = "efi-secure"
 vm_cdrom_type            = "sata"
-vm_cpu_sockets           = 1
-vm_cpu_cores             = 2
+// vm_cpu_sockets is equivalent
+// to the amount of vCPU's assigned
+// to an instance. This name
+// differs from upstream.
+vm_cpu_sockets           = 2
+vm_cpu_cores             = 1
 vm_cpu_hot_add           = false
 vm_mem_size              = 8192
 vm_mem_hot_add           = false
-vm_disk_size             = 80000
+vm_disk_size             = 40000
 vm_disk_controller_type  = ["pvscsi"]
 vm_disk_thin_provisioned = true
 vm_network_card          = "vmxnet3"
 
 // Removable Media Settings
-iso_path           = "iso/windows/server"
-iso_file           = "en-us_windows_server_2022_updated_feb_2022_x64_dvd_d4a089c1.iso"
+// Note that these are specific
+// to the current vSphere environment,
+// and should changed when ISOs are uploaded
+// or removed
+iso_path           = "iso"
+iso_file           = "windows-2022.iso"
 iso_checksum_type  = "sha256"
 iso_checksum_value = "5140AC5FB8F48EFDF4BFCF1E7BE14030F9164A824F12A9D08A45CDC72DAC8D15"
 
@@ -58,8 +77,6 @@ communicator_port    = 5985
 communicator_timeout = "12h"
 
 // Provisioner Settings
-scripts = ["scripts/windows/windows-prepare.ps1"]
-inline = [
-  "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))",
-  "choco feature enable -n allowGlobalConfirmation"
-]
+preparationScripts = ["scripts/windows/windows-prepare.ps1"]
+finishScripts = ["scripts/windows/windows-finish.ps1"]
+
